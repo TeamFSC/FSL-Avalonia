@@ -1,0 +1,106 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+			 xmlns:ui="clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="450"
+             x:Class="FSLAvalonia.Pages.Accounts"
+			 >
+
+	<Border Background="AliceBlue">
+		<ScrollViewer>
+			<StackPanel Margin="20">
+
+				<DockPanel>
+					<Button HorizontalAlignment="Left" Click="NewAcc_Click">
+						<DockPanel>
+							<Image Width="16" Height="16">
+								<Image.Source>
+									<DrawingImage>
+										<DrawingImage.Drawing>
+											<GeometryDrawing Brush="{DynamicResource TextColor}">
+												<GeometryDrawing.Geometry>
+													<PathGeometry Figures="M727 531.5H296c-11 0-19.9-8.9-19.9-19.9s8.9-19.9 19.9-19.9h431c11 0 19.9 8.9 19.9 19.9s-8.9 19.9-19.9 19.9z M511.5 747c-11 0-19.9-8.9-19.9-19.9V296.2c0-11 8.9-19.9 19.9-19.9 11 0 19.9 8.9 19.9 19.9v430.9c0 11-8.9 19.9-19.9 19.9z M511.5 922.4c-55.5 0-109.4-10.9-160.2-32.3-49-20.7-93-50.3-130.8-88-37.8-37.7-67.5-81.7-88.2-130.6-21.5-50.7-32.4-104.5-32.4-159.9s10.9-109.3 32.4-159.9c20.7-48.9 50.4-92.9 88.2-130.6 37.8-37.7 81.8-67.3 130.8-88 50.8-21.4 104.6-32.3 160.2-32.3 55.5 0 109.4 10.9 160.2 32.3 49 20.7 93 50.3 130.8 88 37.8 37.7 67.5 81.7 88.2 130.6 21.5 50.7 32.4 104.5 32.4 159.9s-10.9 109.3-32.4 159.9c-20.7 48.9-50.4 92.9-88.2 130.6-37.8 37.7-81.8 67.3-130.8 88-50.8 21.5-104.7 32.3-160.2 32.3z m0-780.6c-204.4 0-370.6 165.9-370.6 369.8s166.3 369.8 370.6 369.8c204.4 0 370.6-165.9 370.6-369.8S715.9 141.8 511.5 141.8z" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+										</DrawingImage.Drawing>
+									</DrawingImage>
+								</Image.Source>
+							</Image>
+							<TextBlock Text="  添加新账户"/>
+						</DockPanel>
+					</Button>
+
+					<Button HorizontalAlignment="Left" x:Name="delBtn" Click="DelAcc_Click" Margin="10,0,0,0">
+						<DockPanel>
+							<Image Width="16" Height="16">
+								<Image.Source>
+									<DrawingImage>
+										<DrawingImage.Drawing>
+											<GeometryDrawing Brush="{DynamicResource TextColor}">
+												<GeometryDrawing.Geometry>
+													<PathGeometry Figures="M728.32 62.0032a38.4 38.4 0 1 0-33.28 69.2224A424.96 424.96 0 0 1 934.4 512c0 232.9088-189.4912 422.4-422.4 422.4S89.6 744.9088 89.6 512 279.0912 89.6 512 89.6a38.4 38.4 0 0 0 0-76.8C236.7488 12.8 12.8 236.7488 12.8 512s223.9488 499.2 499.2 499.2 499.2-223.9488 499.2-499.2a502.1184 502.1184 0 0 0-282.88-449.9968z  M731.4432 331.008a38.4 38.4 0 0 0-65.5872-27.136L512 457.728 358.144 303.8208a38.4 38.4 0 0 0-54.3232 54.272L457.728 512l-153.856 153.856a38.2976 38.2976 0 0 0 27.136 65.536 38.0928 38.0928 0 0 0 27.136-11.264L512 566.3232l153.856 153.856a38.2976 38.2976 0 0 0 65.536-27.136 38.0928 38.0928 0 0 0-11.264-27.136L566.3232 512l153.856-153.856a38.0928 38.0928 0 0 0 11.264-27.136z" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+										</DrawingImage.Drawing>
+									</DrawingImage>
+								</Image.Source>
+							</Image>
+							<TextBlock Text="  删除"/>
+						</DockPanel>
+					</Button>
+
+				</DockPanel>
+
+				<ListBox Margin="0,20" x:Name="accounts" SelectionChanged="ListBox_SelectionChanged"/>
+
+				<TextBlock x:Name="tip1" Margin="0,10,0,5" IsVisible="False"/>
+				<TextBox x:Name="text1" IsVisible="False" Foreground="{DynamicResource TextColor}"/>
+				<TextBlock x:Name="tip2" Margin="0,10,0,5" IsVisible="False"/>
+				<TextBox x:Name="text2" IsVisible="False" Foreground="{DynamicResource TextColor}"/>
+
+					
+					<Button Background="{DynamicResource 1x}" x:Name="confirm" Click="Button_Click" IsVisible="False" Margin="0,20,0,0">
+						<DockPanel>
+							<Image Width="16" Height="16">
+								<Image.Source>
+									<DrawingImage>
+										<DrawingImage.Drawing>
+											<GeometryDrawing Brush="{DynamicResource TextColor}">
+												<GeometryDrawing.Geometry>
+													<PathGeometry Figures="M512 1024c-281.6 0-512-230.4-512-512s230.4-512 512-512c108.8 0 211.2 32 300.8 96 12.8 12.8 19.2 32 6.4 44.8s-32 19.2-44.8 6.4C697.6 89.6 608 64 512 64 262.4 64 64 262.4 64 512s198.4 448 448 448 448-198.4 448-448c0-76.8-19.2-153.6-57.6-224-6.4-12.8-6.4-32 12.8-44.8 12.8-6.4 32-6.4 44.8 12.8 38.4 76.8 64 166.4 64 256 0 281.6-230.4 512-512 512z M710.4 332.8L428.8 608 313.6 492.8c-19.2-12.8-38.4-12.8-57.6 0-12.8 19.2-12.8 44.8 0 57.6l147.2 140.8c12.8 12.8 38.4 12.8 57.6 0L768 384c12.8-12.8 12.8-38.4 0-51.2-12.8-12.8-38.4-12.8-57.6 0z" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+										</DrawingImage.Drawing>
+									</DrawingImage>
+								</Image.Source>
+							</Image>
+							<TextBlock Text="  确认"/>
+						</DockPanel>
+					</Button>
+
+					<Button Background="{DynamicResource 1x}" x:Name="back" Click="Button_Clicks" IsVisible="False" Margin="0,20,0,0">
+						<DockPanel>
+							<Image Width="16" Height="16">
+								<Image.Source>
+									<DrawingImage>
+										<DrawingImage.Drawing>
+											<GeometryDrawing Brush="{DynamicResource TextColor}">
+												<GeometryDrawing.Geometry>
+													<PathGeometry Figures="M872.6912 488.96 209.36064 488.96l319.64288-319.51488c9.39008-9.39008 9.39008-24.48896 0-33.87904-9.39264-9.39008-24.61568-9.37088-34.00704 0.02048l-360.6912 360.7296c-6.87744 6.87744-8.9344 17.29792-5.21216 26.28224 3.72224 8.98688 12.48896 15.0016 22.21568 15.0016l721.3824 0c13.28128 0 24.04608-11.04 24.04608-24.32C896.73728 500 885.97248 488.96 872.6912 488.96zM277.87264 605.43232c-9.40672-9.37472-24.63104-9.34912-34.00576 0.0576-9.376 9.40672-9.34912 24.63104 0.05632 34.00576l251.10144 250.26688c4.69376 4.67712 10.83392 7.01312 16.97536 7.01312 6.16576 0 12.33408-2.35904 17.03296-7.07072 9.37344-9.40672 9.34912-24.63104-0.05888-34.00576L277.87264 605.43232z" />
+												</GeometryDrawing.Geometry>
+											</GeometryDrawing>
+										</DrawingImage.Drawing>
+									</DrawingImage>
+								</Image.Source>
+							</Image>
+							<TextBlock Text="  取消"/>
+						</DockPanel>
+					</Button>
+					
+
+			</StackPanel>
+		</ScrollViewer>
+
+	</Border>
+</UserControl>

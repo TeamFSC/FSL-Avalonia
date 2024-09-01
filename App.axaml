@@ -1,0 +1,26 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="FSLAvalonia.App"
+			 xmlns:sty="using:FluentAvalonia.Styling"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.Styles>
+		
+		<sty:FluentAvaloniaTheme />
+		<StyleInclude Source="/Public/Styles/Style.axaml" />
+		<StyleInclude Source="avares://Semi.Avalonia/Themes/Index.axaml" />
+		
+    </Application.Styles>
+
+	<Application.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceInclude Source="/Public/Styles/IconPath.axaml" />
+				<ResourceInclude Source="/Public/Styles/LightTheme.axaml" />
+				
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Application.Resources>
+	
+</Application>
